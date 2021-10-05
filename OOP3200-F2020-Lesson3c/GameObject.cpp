@@ -1,3 +1,6 @@
+// Tristan Mckone ICE 4
+// 2021-10-05
+// OOP -2
 #include "GameObject.h"
 
 GameObject::GameObject():m_id(0), m_position((Vector2D()))

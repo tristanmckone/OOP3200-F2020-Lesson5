@@ -1,3 +1,6 @@
+// Tristan Mckone ICE 4
+// 2021-10-05
+// OOP -2
 #pragma once
 #ifndef __GAME_OBJECT__
 #define __GAME_OBJECT__

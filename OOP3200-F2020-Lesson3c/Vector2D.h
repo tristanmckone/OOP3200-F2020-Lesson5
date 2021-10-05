@@ -1,3 +1,6 @@
+// Tristan Mckone ICE 4
+// 2021-10-05
+// OOP -2
 #pragma once
 #ifndef __VECTOR2D__
 #define __VECTOR2D__
