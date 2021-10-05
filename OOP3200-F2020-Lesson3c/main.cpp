@@ -27,8 +27,28 @@ static void BuildGameObjects(std::vector<GameObject*>& game_objects, const int n
 		auto* gameObject = new GameObject(id, point);
 		game_objects.push_back(gameObject);
 	}
-	
 }
+
+	static void CompareGameObjects(GameObject * object1, GameObject * object2)
+	{
+		std::cout << std::fixed << std::setprecision(3);
+		std::cout << "Magnitude of first gameObject is: " << object1->GetPosition().GetMagnitude() << std::endl;
+		std::cout << "Magnitude of second gameObject is: " << object2->GetPosition().GetMagnitude() << std::endl;
+		std::cout << "Distance between first gameObject and second gameObject is: "
+			<< Vector2D::Distance(object1->GetPosition(), object2->GetPosition()) << std::endl;
+		std::cout << "--------------------------------------------------------------\n" << std::endl;
+
+		std::cout << "The angle (in degrees) from the first gameObject to the second gameObject is: "
+			<< Vector2D::SignedAngle(object1->GetPosition(), object2->GetPosition()) << std::endl;
+
+		std::cout << "--------------------------------------------------------------\n" << std::endl;
+		std::cout << "First Game Object Details:" << std::endl;
+		std::cout << object1->ToString() << std::endl;
+
+		std::cout << "Second Game Object Details:" << std::endl;
+		std::cout << object2->ToString() << std::endl;
+	}
+
 
 int main()
 {
@@ -42,20 +62,18 @@ int main()
 
 
 	
+	int index1;
+	std::cout << "What is the First Object index?: ";
+	std::cin >> index1;
+	std::cout << "\n--------------------------------------------------------------" << std::endl;
+	int index2;
+	std::cout << "What is the Second Object index?: ";
+	std::cin >> index2;
+	std::cout << "\n--------------------------------------------------------------" << std::endl;
 
-	std::cout << std::fixed << std::setprecision(3);
-	std::cout << "Magnitude of first gameobject is: " << gameObjects[0]->GetPosition().GetMagnitude() << std::endl;
-	std::cout << "Magnitude of second gameobject is: " << gameObjects[1]->GetPosition().GetMagnitude() << std::endl;
-	std::cout << "Distance between first game object and second game object is: " << Vector2D::Distance(gameObjects[0]->GetPosition(), gameObjects[1]->GetPosition()) << std::endl;
-	std::cout << "--------------------------------------------------------------\n" << std::endl;
-
-	std::cout << "The angle (in degrees) from the first game object to the second game object is: " << Vector2D::SignedAngle(gameObjects[0]->GetPosition(), gameObjects[1]->GetPosition()) << std::endl;
-
-	std::cout << "First Game Object Details:" << std::endl;
-	std::cout << gameObjects[0]->ToString() << std::endl;
-
-	std::cout << "Seconds Game Object Details:" << std::endl;
-	std::cout << gameObjects[1]->ToString() << std::endl;
+	CompareGameObjects(gameObjects[index1], gameObjects[index2]);
+	CompareGameObjects(gameObjects[index1], gameObjects[index2]);
+	
 	
 }
 
