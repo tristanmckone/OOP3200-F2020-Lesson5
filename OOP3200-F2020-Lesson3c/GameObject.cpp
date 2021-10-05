@@ -1,16 +1,18 @@
 #include "GameObject.h"
 
-GameObject::GameObject(): m_position((Vector2D()))
+GameObject::GameObject():m_id(0), m_position((Vector2D()))
 {
 }
 
-GameObject::GameObject(const float x, const float y)
+GameObject::GameObject(const int id, const float x, const float y)
 {
+	SetID(id);
 	SetPosition(x, y);
 }
 
-GameObject::GameObject(Vector2D position)
+GameObject::GameObject(const int id, const Vector2D& position)
 {
+	SetID(id);
 	SetPosition(position);
 }
 
@@ -20,21 +22,33 @@ GameObject::~GameObject()
 
 GameObject::GameObject(const GameObject& other_object)
 {
+	SetID(other_object.m_id);
 	SetPosition(other_object.m_position);
 }
 
 GameObject& GameObject::operator=(const GameObject& other_object)
 {
+	SetID(other_object.m_id);
 	SetPosition(other_object.m_position);
 		return (*this);
 }
 
-Vector2D GameObject::GetPosition()
+Vector2D GameObject::GetPosition() const
 {
 	return m_position;
 }
 
-void GameObject::SetPosition(float x, float y)
+int GameObject::GetID() const
+{
+	return m_id;
+}
+
+void GameObject::SetID(int id)
+{
+	m_id = id;
+}
+
+void GameObject::SetPosition(const float x, const float y)
 {
 	m_position.Set(x, y);
 }
@@ -42,4 +56,12 @@ void GameObject::SetPosition(float x, float y)
 void GameObject::SetPosition(Vector2D new_position)
 {
 	m_position = new_position;
+}
+
+std::string GameObject::ToString() const
+{
+	std::string output_string;
+	output_string += "ID : " + std::to_string(GetID());
+	output_string += "Position : " + GetPosition().ToString();
+	return output_string;
 }

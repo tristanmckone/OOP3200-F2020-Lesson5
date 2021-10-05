@@ -8,8 +8,8 @@ class GameObject
 public:
 	// Constructors
 	GameObject();
-	GameObject(float x, float y);
-	GameObject(Vector2D position);
+	GameObject(int id, float x, float y);
+	GameObject(int id, const Vector2D& position);
 
 	// Rule of Three
 	~GameObject();
@@ -17,16 +17,23 @@ public:
 	GameObject& operator=(const GameObject& other_object); // Assignment operator
 
 	// Accessors
-	Vector2D GetPosition();
+	Vector2D GetPosition() const;
+	int GetID() const;
 
 	// Mutators
 	void SetPosition(float x, float y);
 	void SetPosition(Vector2D new_position);
+	void SetID(int id);
+
+
+	// Utility Functions
+	std::string ToString() const;
 
 
 
 
 private:
+	int m_id;
 	Vector2D m_position;
 };
 
