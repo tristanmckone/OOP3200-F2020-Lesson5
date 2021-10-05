@@ -6,7 +6,7 @@
 class GameObject
 {
 public:
-	// COnstructors
+	// Constructors
 	GameObject();
 	GameObject(float x, float y);
 	GameObject(Vector2D position);
@@ -15,6 +15,13 @@ public:
 	~GameObject();
 	GameObject(const GameObject& other_object); // Copy constructor
 	GameObject& operator=(const GameObject& other_object); // Assignment operator
+
+	// Accessors
+	Vector2D GetPosition();
+
+	// Mutators
+	void SetPosition(float x, float y);
+	void SetPosition(Vector2D new_position);
 
 
 
